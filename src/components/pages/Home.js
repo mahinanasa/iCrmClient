@@ -23,7 +23,7 @@ const Home = ({history}) => {
   const loadUsers = async () =>{ 
       setAuthToken(localStorage.token);
       try {
-        const res = await axios.get('/api/auth/me');
+        const res = await axios.get('https://icrm-server.herokuapp.com/api/auth/me');
         setUsername(res.data.data.name);
         dispatch({type: USER_LOADED, payload: res.data});
       } catch (err) {

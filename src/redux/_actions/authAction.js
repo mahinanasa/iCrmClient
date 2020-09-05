@@ -5,7 +5,7 @@ export const register = user => {
     return async (dispatch) => {
         const config = { header: { 'Content-Type': 'application/json' } }
         try {
-            const res = await axios.post('/api/auth/register', user, config)
+            const res = await axios.post('https://icrm-server.herokuapp.com/api/auth/register', user, config)
             console.log(res.data);
             dispatch({ type: REGISTER_SUCCESS, payload: res.data })
         } catch (err) {
@@ -19,7 +19,7 @@ export const login = (email, password) => {
     return async dispatch => {
         try {
             const config = { header: { 'Content-Type': 'application/json' } }
-            const res = await axios.post(`/api/auth/login`, { email, password }, config);
+            const res = await axios.post(`https://icrm-server.herokuapp.com/api/auth/login`, { email, password }, config);
 
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         } catch (err) {

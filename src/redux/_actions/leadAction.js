@@ -9,7 +9,7 @@ export const getAllLead = leadData => {
         //const config = {header: {'Content-Type': 'application/json'}}  
         try {
 
-            const res = await await axios.get('http://localhost:5001/api/getLeads', { params: leadData });
+            const res = await await axios.get('https://icrm-server.herokuapp.com/api/getLeads', { params: leadData });
 
             console.log(res.data);
             dispatch({ type: SAVE_LEAD, payload: res.data })
@@ -28,7 +28,7 @@ export const addLeadAction = leadData => {
         try {
 
 
-            const res = await await axios.post('http://localhost:5001/api/createLead', leadData);
+            const res = await await axios.post('https://icrm-server.herokuapp.com/api/createLead', leadData);
 
             console.log(res.data);
             await dispatch({ type: ADD_LEAD, payload: res.data })
@@ -73,7 +73,7 @@ export const deleteLeadAction = leadData => {
         try {
 
 
-            const res = await axios.delete('http://localhost:5001/api/deleteLead', { data: leadData });
+            const res = await axios.delete('https://icrm-server.herokuapp.com/api/deleteLead', { data: leadData });
 
             if (Number(res.data.data.deletedCount) > 0) {
                 console.log(res.data);

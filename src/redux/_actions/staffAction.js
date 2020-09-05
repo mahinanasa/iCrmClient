@@ -9,7 +9,7 @@ export const getAllStaff = staffData => {
         //const config = {header: {'Content-Type': 'application/json'}}  
         try {
             console.log(staffData)
-            const res = await await axios.get('http://localhost:5001/api/getStaffs', { params: staffData });
+            const res = await await axios.get('https://icrm-server.herokuapp.com/api/getStaffs', { params: staffData });
 
             console.log(res.data);
             dispatch({ type: SAVE_STAFF, payload: res.data })
@@ -29,7 +29,7 @@ export const addStaffAction = staffData => {
         try {
 
 
-            const res = await await axios.post('http://localhost:5001/api/createStaff', staffData);
+            const res = await await axios.post('https://icrm-server.herokuapp.com/api/createStaff', staffData);
 
             console.log(res.data);
             dispatch({ type: ADD_STAFF, payload: res.data })
@@ -51,7 +51,7 @@ export const updateStaffAction = staffData => {
 
         //const config = {header: {'Content-Type': 'application/json'}}  
         try {
-            const res = await await axios.put('http://localhost:5001/api/updateStaff', staffData);
+            const res = await await axios.put('https://icrm-server.herokuapp.com/api/updateStaff', staffData);
             dispatch({ type: UPDATE_STAFF, payload: res.data })
             return true
 
@@ -68,7 +68,7 @@ export const deleteStaffAction = staffData => {
     return async (dispatch) => {
         //const config = {header: {'Content-Type': 'application/json'}}  
         try {
-            const res = await axios.delete('http://localhost:5001/api/deleteStaff', { data: staffData });
+            const res = await axios.delete('https://icrm-server.herokuapp.com/api/deleteStaff', { data: staffData });
             if (Number(res.data.data.deletedCount) > 0) {
                 console.log(res.data);
                 dispatch({ type: DELETE_STAFF, payload: staffData })
